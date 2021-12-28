@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>mx.gob.sat</groupId>
+    <artifactId>proyecto1</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>proyecto1</name>
+    <url>http://maven.apache.org</url>
+ 
+    <dependencies>
+    
+    </dependencies>
+  
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                
+                <configuration>
+                    <archive>
+                        <manifest>
+                            ${project.build.outputDirectory}/META-INF/MANIFEST.MF
+                            <addClasspath>true</addClasspath>       <!-- Agregar Class-Path al Manifest -->
+                            <mainClass>mx.gob.sat.App</mainClass>   <!-- Agregar Clase principal al Manifest -->
+                            <classpathPrefix>lib/</classpathPrefix> <!-- el JAR ve las dependencias de librerias en la carpeta lib afuera del JAR-->
+                        </manifest>
+						
+                        <manifestEntries>
+                            <mode>development</mode>
+                            <url>${project.url}</url>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+      
+    </build>
+  
+</project>
